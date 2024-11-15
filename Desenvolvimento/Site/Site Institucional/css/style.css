@@ -4,13 +4,22 @@
 
 header{
     width: 100%;
-    height: 11vh;
+    height: 10vh;
     background-color: #101010;
-    display: ;
+    display: flex;
+    color: #ffffff;
+
+    & .no_link{
+        text-decoration: none;
+        color: inherit;
+    }
 
     & img{
-        width: 32px;
+        width: 40px;
     }
+
+    
+
 }
 
 main{
@@ -21,3 +30,4 @@ main{
         background-image: url("C:\Users\vinic\Desktop\Projetos\Projeto Individual\Solomon-s\Desenvolvimento\Site\Site Institucional\assets\Fundo_home.png");
     }
 }
+
