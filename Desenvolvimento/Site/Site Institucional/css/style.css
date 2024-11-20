@@ -85,7 +85,7 @@ main{
 
     & #section_home{
         height: 642px;
-        background-image: url("assets/Fundo_home.png");
+        background-image: url("../assets/Fundo_home.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -108,7 +108,7 @@ main{
     & #section_sobre{
         width: 100%;
         height: 750px;
-        background-image: url("assets/Fundo_sobre.png");
+        background-image: url("../assets/Fundo_sobre.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -144,7 +144,7 @@ main{
     & #section_simular{
         width: 100%;
         height: 750px;
-        background-image: url("assets/Fundo_simular.png");
+        background-image: url("../assets/Fundo_simular.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -187,7 +187,7 @@ main{
     & #section_missao{
         width: 100%;
         height: 750px;
-        background-image: url("assets/Fundo.png");
+        background-image: url("../assets/Fundo.png");
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -276,7 +276,7 @@ footer{
         height: 190px;
         background-position: center;
         background-repeat: no-repeat;
-        background-image: url("assets/footer_fundo.png");
+        background-image: url("../assets/footer_fundo.png");
         display: flex;
         flex-direction: row;
         justify-content: space-between;
