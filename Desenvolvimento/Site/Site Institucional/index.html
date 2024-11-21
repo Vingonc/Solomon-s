@@ -39,14 +39,14 @@
         </nav>
         <nav id="links">
             <div>
-                <a class="no_link" href="">Home</a>
-                <a class="no_link" href="">Missão</a>
-                <a class="no_link" href="">Sobre mim</a>
+                <a class="no_link" onclick="select_menu('link_home')" id="link_home">Home</a>
+                <a class="no_link" onclick="select_menu('link_missao')" id="link_missao">Missão</a>
+                <a class="no_link" onclick="select_menu('link_sobre')" id="link_sobre">Sobre mim</a>
             </div>
             <div id="usuario">
                 <span>|</span>
-                <a class="no_link" href="">Cadastrar-se</a>
-                <button>Entrar</button>
+                <a class="no_link" href="C:\Users\vinic\Desktop\Projetos\Projeto Individual\Solomon-s\Desenvolvimento\Site\Site Institucional\auth\auth.html">Cadastrar-se</a>
+                <button onclick="realizarLogin()">Entrar</button>
             </div>
         </nav>
     </header>
@@ -88,7 +88,7 @@
                 <div>
                     <img id="moldura" src="assets/Moldura_simular.png">
                 </div>
-                <button id="button_cadastro">Cadastrar-se</button>
+                <button id="button_cadastro" onclick="realizarCadastro()">Cadastrar-se</button>
             </div>
             <div>
                 <p>Através da Solomon’s você tem um direcionamento para um plano de estudos com base nas suas preferências e características! Tornando a jornada de estudo mais fácil, agradável e prazerosa!</p>
@@ -107,7 +107,7 @@
                 </div>
                 <p>Escrito por volta de 400 a.C., o livro de Provérbios é uma obra milenar que se mantém relevante por seus ensinamentos práticos e atemporais. Suas lições incentivam a reflexão, a busca por conhecimento e a aplicação da sabedoria no dia a dia, promovendo o desenvolvimento intelectual e pessoal.</p>
                 <p>Com conselhos diretos e de fácil compreensão, Provérbios estimula habilidades como disciplina, paciência e aprendizado constante, essenciais para o progresso nos estudos. Sua estrutura concisa também facilita a memorização, tornando-o um recurso valioso para fortalecer o raciocínio e o pensamento crítico.</p>
-                <button>Quiz</button>
+                <button onclick="direcionarQuiz()">Quiz</button>
             </div>
         </section>
         <!-- SECTION SIMULAR -->
