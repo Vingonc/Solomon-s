@@ -10,6 +10,11 @@ const labels = [
     '24/11',
 ];
 
+const estadoAulas =[
+    'Pendente',
+    'Realizadas',
+]
+
 const data = {
     labels: labels,
     datasets: [{
@@ -37,6 +42,22 @@ const data = {
         borderWidth: 1,
         fill: false,
         pointBackgroundColor: 'rgb(242, 172, 172)',
+    }]
+}
+
+const aulas = {
+    labels: estadoAulas,
+    datasets: [{
+        label: 'Pendetes',
+        backgroundColor: 'rgb(242, 172, 172)',
+        borderColor: 'rgb(242, 172, 172)',
+        data: [50, 0],
+    },
+    {
+        label: 'Realizadas',
+        backgroundColor: 'rgb(79, 122, 63)',
+        borderColor: 'rgb(79, 122, 63)',
+        data: [0, 10],
     }]
 }
 
@@ -78,7 +99,51 @@ const config = {
     }
 }
 
+const config2 = {
+    type: 'bar',
+    data: aulas,
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'black', // Cor do texto da legenda
+                    generateLabels: function(chart) {
+                        // Mantém as cores iguais às linhas do gráfico
+                        return chart.data.datasets.map(function(dataset, i) {
+                            return {
+                                text: dataset.label,
+                                fillStyle: dataset.borderColor, // Quadrado com a mesma cor da borda
+                                strokeStyle: dataset.borderColor,
+                                lineWidth: dataset.borderWidth,
+                                datasetIndex: i
+                            };
+                        });
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false // Remove as linhas de grade verticais
+                }
+            },
+            y: {
+                grid: {
+                    display: false // Remove as linhas de grade horizontais
+                }
+            }
+        }
+    }
+}
+
+
 const myChart = new Chart(
     document.getElementById('myChart'),
     config
+)
+
+const chartMetas = new Chart(
+    document.getElementById('chartMetas'),
+    config2
 )

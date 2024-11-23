@@ -80,7 +80,7 @@
         <div id="dash">
             <div id="visaoProdutividadeGeral">
                 <div id="titulo">
-                    <p>Visão de produtividade</p>
+                    <p  class="kpi_titulo">Visão de produtividade</p>
                 </div>
                 <div id="grafico">
                     <canvas id="myChart"></canvas>
@@ -89,29 +89,31 @@
 
 
             <div id="visaoSecundaria">
-                <div id="consistencia">
-                    <div id="titulo">
-                        <p>Consistência</p>
+                <div id="kpis">
+                    <div class="kpi_informacao" id="consistencia">
+                        <div id="titulo">
+                            <p class="kpi_titulo">Consistência</p>
+                        </div>
+                        <div class="kpi_conteudo" id="conteudo_consistencia">
+                            <img src="assets/dashboard/raio (1).png">
+                            <p class="kpi_dado">10 Dias</p>
+                        </div>
                     </div>
-                    <div>
-                        <img src="" alt="">
-                        <p>10 Dias</p>
+    
+                    <div class="kpi_informacao" id="progressao">
+                        <div id="titulo">
+                            <p  class="kpi_titulo">Progressão</p>
+                        </div>
+                        <div class="kpi_conteudo" id="conteudo_progressao">
+                            <img src="assets/dashboard/progressao-grafica.png">
+                            <p class="kpi_dado">50/10</p>
+                        </div>
                     </div>
                 </div>
 
-                <div id="progressao">
+                <div id="div_visaoMaterias">
                     <div id="titulo">
-                        <p>Progressão</p>
-                    </div>
-                    <div>
-                        <img src="" alt="">
-                        <p>50/10</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div id="titulo">
-                        <p>Aulas realizadas</p>
+                        <p  class="kpi_titulo">Aulas realizadas</p>
                     </div>
                     <div id="materiasRealizadas">
                         <canvas id="chartMetas"></canvas>
