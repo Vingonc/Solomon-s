@@ -81,3 +81,51 @@ header{
     }
 }
 /*-----Header-----*/
+
+main{
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", serif;
+    font-weight: 400;
+    font-style: normal;
+
+
+    & #visao_estudos{
+
+        & img{
+            height: 25px;
+        }
+    }
+
+    & #dash{
+        margin: 25px;
+
+        & #visaoProdutividadeGeral{
+            width: 700px;
+            height: 400px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            & #titulo{
+                width: 700px;
+                height: 50px;
+                background-color: #202020;
+                border-top-left-radius: 9px;
+                border-top-right-radius: 9px;
+                display: flex;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        & #grafico{
+            width: 700px;
+            height: 500px;
+        }
+}
+}
