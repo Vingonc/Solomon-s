@@ -156,3 +156,17 @@ const sideMenu = document.getElementById('side_menu');
 menuToggle.addEventListener('click', () => {
     sideMenu.classList.toggle('active');
 });
+
+
+
+// Seleciona os elementos do menu e do ícone
+const menu = document.getElementById('menu_estudos');
+const toggleIcon = document.getElementById('toggle_icon');
+
+// Alterna a visibilidade e a rotação ao clicar no ícone
+toggleIcon.addEventListener('click', function () {
+    menu.classList.toggle('hidden'); // Adiciona ou remove a classe 'hidden'
+    
+    // Aplica rotação de 180 graus ou retorna à posição original
+    toggleIcon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+});
