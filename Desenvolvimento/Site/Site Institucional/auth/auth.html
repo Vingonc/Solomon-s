@@ -18,62 +18,55 @@
 
 </head>
 <body>
-    <header id="header">
-        <nav id="logo">
+    <main>
+        <div id="logo">
             <div>
-                <img src="assets/Logo.png">
+                <img id="logo_logo" src="assets/Logo.png">
             </div>
             <div id="nome_site">
                 <h3>Solomon’s</h3>
             </div>
-        </nav>
-        <nav id="links">
             <div>
-                <a class="no_link" href="">Home</a>
-                <a class="no_link" href="">Missão</a>
-                <a class="no_link" href="">Sobre mim</a>
+                <img id="voltar" src="assets/seta.png" onclick="direcionarHome()">
             </div>
-            <div id="usuario">
-                <span>|</span>
-                <a class="no_link" href="">Cadastrar-se</a>
-                <button>Entrar</button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <div id="mensagem">
-            <p id="titulo">SEJA BEM-VINDO!</p>
-            <div>
-                <img src="assets/cadastro/Separador.png">
-            </div>
-            <p id="text">Já tem uma conta?</p>
-            <p id="text">Realize o login para visualizar seu plano de estudos e prosseguir atingindo suas metas!</p>
-
-            <button>Login</button>
         </div>
 
-        <div id="dados">
-            <p id="titulo">CRIAR UMA CONTA</p>
-            <div id="inputs">
-                <img src="assets/cadastro/nome.png">
-                <input id="input" placeholder="NOME">
+        <div id="conteudo">
+            <div id="mensagem">
+                <p id="titulo">SEJA BEM-VINDO!</p>
+                <div>
+                    <img src="assets/cadastro/Separador.png">
+                </div>
+                <p id="text">Já tem uma conta?</p>
+                <p id="text">Realize o login para visualizar seu plano de estudos e prosseguir atingindo suas metas!</p>
+    
+                <button onclick="direcionarLogin()">Login</button>
             </div>
-            <div id="inputs">
-                <img src="assets/cadastro/mail.png">
-                <input id="input" placeholder="E-MAIL">
+    
+            <div id="dados">
+                <p id="titulo">CRIAR UMA CONTA</p>
+                <div id="inputs">
+                    <img src="assets/cadastro/nome.png">
+                    <input id="input" placeholder="NOME">
+                </div>
+                <div id="inputs">
+                    <img src="assets/cadastro/mail.png">
+                    <input id="input" placeholder="E-MAIL">
+                </div>
+                <div id="inputs">
+                    <img src="assets/cadastro/senha.png">
+                    <input id="input" placeholder="SENHA">
+                </div>
+                <div id="inputs">
+                    <img src="assets/cadastro/senha.png">
+                    <input id="input" placeholder="REPETIR SENHA">
+                </div>
+    
+                <button>Cadastrar</button>
             </div>
-            <div id="inputs">
-                <img src="assets/cadastro/senha.png">
-                <input id="input" placeholder="SENHA">
-            </div>
-            <div id="inputs">
-                <img src="assets/cadastro/senha.png">
-                <input id="input" placeholder="REPETIR SENHA">
-            </div>
-
-            <button>Cadastrar</button>
         </div>
     </main>
 </body>
 </html>
+
+<script src="js/auth.js"></script>

@@ -3,30 +3,36 @@
     padding: 0;
 }
 
-/*-----Header-----*/
-header{
+main{
     width: 100%;
-    height: 10vh;
-    display: flex;
-    justify-content: space-between;
-    background-color: #101010;
+    height: 712px;
+    background-image: url("../assets/login/Fundo_login.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     color: #ffffff;
-    border-bottom: 2px solid white;
-    font-family: "Playfair", serif;
-    font-optical-sizing: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", serif;
+    font-weight: 400;
     font-style: normal;
-    font-variation-settings: "wdth" 100;
-    position: sticky;
-    z-index: 1000;
-    top: 0;
-    
+
     & #logo{
+        width: 100%;
         display: flex;
         align-items: center;
-        margin: 5px;
+        justify-content: start;
+        font-family: "Playfair", serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-variation-settings: "wdth" 100;
+        margin-left: 100px;
+        margin-top: 35px;
 
-        & img{
-            width: 50px;
+        & #logo_logo{
+            width: 40px;
             padding-right: 15px;
             padding-left: 10px;
         }
@@ -35,125 +41,96 @@ header{
             font-size: 27px;
             font-family: "Playfair", serif;
         }
+
+        & #voltar{
+            width: 25px;
+            margin-left: 15px;
+            padding-top: 8px;
+            cursor: pointer;
+        }
     }
 
-    & #links{
+    & #conteudo{
         display: flex;
-        align-items: center;
         flex-direction: row;
-        justify-content: space-between;
-        font-size: 25px;
-        margin: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: 100px;
+        margin-bottom: 150px;
+        width: 100%;
 
-        & .no_link{
-            text-decoration: none;
-            color: inherit;
-            margin: 10px;
+        & #titulo{
+            font-size: 40px;
+            margin-bottom: 10px;
         }
-
-    }
+        & p{
+            font-size: 30px;
+        }
     
-    & #usuario{
-        display: flex;
-        align-items: center;
-
         & button{
-            height: 30px;
-            font-size: 25px;
-            font-family: "Playfair", serif;
+            height: 40px;
+            width: 150px;
             background-color: #ffffff;
-            border-radius: 5px;
+            color: #101010;
+            border-radius: 20px;
             border: none;
+            margin-top: 15px;
+            font-family: "Poppins", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 25px;
+            text-align: center;
+            cursor: pointer;
         }
-    }
-}
-/*-----Header-----*/
-
-main{
-    width: 100%;
-    height: 640px;
-    background-image: url("../assets/login/Fundo_login.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    font-family: "Poppins", serif;
-    font-weight: 400;
-    font-style: normal;
-
-    & #titulo{
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-    & p{
-        font-size: 30px;
-    }
-
-    & button{
-        height: 40px;
-        width: 150px;
-        background-color: #ffffff;
-        color: #101010;
-        border-radius: 20px;
-        border: none;
-        margin-top: 15px;
-        font-family: "Poppins", serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 25px;
-        text-align: center;
-    }
-
-    & #mensagem{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        margin-left: 200px;
-        margin-right: 50px;
-
-        & #text{
-            margin: 15px;
-        }
-    }
-
-    & #dados{
-        width: 100vw;
-        height: auto;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
-        font-size: 45px;
-        margin-left: 100px;
-
-        & #inputs{
-            width: 350px;
-            height: 35px;
+    
+        & #mensagem{
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 7px;
-            background-color: #ffffff;
-            border-radius: 5px;
-
-            & img{
-                height: 20px; 
-                margin: 5px;
+            flex-direction: column;
+            text-align: center;
+            margin-left: 200px;
+            margin-right: 50px;
+    
+            & #text{
+                margin: 15px;
             }
         }
-        
-        & input{
+    
+        & #dados{
+            width: 100vw;
+            height: auto;
             display: flex;
-            width: 300px;
-            height: 35px;
-            border-radius: 5px;
-            border: none;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            font-size: 45px;
+            margin-left: 90px;
+    
+            & #inputs{
+                width: 350px;
+                height: 35px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 7px;
+                background-color: #ffffff;
+                border-radius: 5px;
+    
+                & img{
+                    height: 20px; 
+                    margin: 5px;
+                }
+            }
+            
+            & input{
+                display: flex;
+                width: 300px;
+                height: 35px;
+                border-radius: 5px;
+                border: none;
+            }
         }
     }
+
 
 }
