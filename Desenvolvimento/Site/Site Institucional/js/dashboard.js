@@ -147,3 +147,12 @@ const chartMetas = new Chart(
     document.getElementById('chartMetas'),
     config2
 )
+
+// Selecionando o botão de toggle e o menu lateral
+const menuToggle = document.getElementById('menu_toggle');
+const sideMenu = document.getElementById('side_menu');
+
+// Adicionando evento de clique para abrir/fechar o menu
+menuToggle.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+});

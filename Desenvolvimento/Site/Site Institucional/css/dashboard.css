@@ -90,6 +90,60 @@ header{
             }
         }
     }
+
+    & .side_menu{
+        position: fixed;
+        top: 0;
+        right: -250px; /* Menu começa fora da tela à direita */
+        width: 250px;
+        height: 100%;
+        background-color: #101010;
+        transition: right 0.3s ease; /* Animação para mover o menu */
+        z-index: 999;
+        margin-top: 73px;
+        color: #fff;
+        box-shadow: -5px 0 7px rgba(0, 0, 0, 0.5);
+        font-family: "Poppins", serif;
+        font-weight: 400;
+        font-style: normal;
+
+        & .conteudo_menu{
+            display: flex;
+            flex-direction: column;
+
+            & .titulo_menu{
+                background-color: #202020;
+                height: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            & #opcoes_menu{
+                display: flex;
+                flex-direction: column;
+
+                & div{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: row;
+                    margin-right: 20px;
+
+                    & img{
+                        height: 25px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    & .side_menu.active{
+        right: 0;
+    }
+
+
 }
 
 main{
