@@ -19,6 +19,12 @@ header{
     position: sticky;
     z-index: 1000;
     top: 0;
+
+    & h3{
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+    }
     
     & #logo{
         display: flex;
@@ -45,16 +51,16 @@ header{
         font-size: 25px;
         margin: 10px;
 
-        & .no_link{
+        & .no_link {
             text-decoration: none;
             color: inherit;
+            cursor: pointer;
             margin: 10px;
         }
 
         & .no_link:hover{
             transform: scale(1.1);
         }
-
     }
     
     & #usuario{
@@ -68,6 +74,11 @@ header{
             background-color: #ffffff;
             border-radius: 5px;
             border: none;
+        }
+
+        & button:hover{
+            transform: scale(1.1);
+            cursor: pointer;
         }
     }
 }
@@ -106,6 +117,10 @@ main{
             font-style: normal;
             font-size: 45px;
             text-align: center;
+        }
+
+        & p:hover{
+            transform: scale(1.1);  
         }
     }
 
@@ -178,6 +193,11 @@ main{
                 margin-left: 250px;
                 margin-bottom: 20px;
             }
+
+            & #button_cadastro:hover{
+                transform: scale(1.1);
+                cursor: pointer;
+            }
         }
         
         & p{
@@ -229,8 +249,12 @@ main{
                 background-color: #ffffff;
                 border-radius: 20px;
                 border: none;
-                font-size: 42px;
+                font-size: 35px;
                 text-align: center;
+            }
+
+            & button:hover{
+                transform: scale(1.1);
             }
         }
     }
@@ -252,12 +276,12 @@ main{
 
             & p{
                 font-size: 30px;
-                padding-top: 20px;
+                padding-top: 22px;
             }
 
             & #titulo{
                 font-size: 48px;
-                padding-bottom: 15px;
+                padding-bottom: 8px;
             }
         }
 
@@ -330,6 +354,9 @@ footer{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+        height: 250px;
+        
 
         & p{
             font-size: 18px;
@@ -344,33 +371,60 @@ footer{
         & #logo{
             margin-bottom: 25px;
             margin-inline: 25px;
+            display: flex;
 
             & img{
                 height: 200px;
+                padding-left: 20px;
             }
         }
-        
-        
-        & #redes_sociais{
+
+        & #logo_rede{
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: row;
+            align-items: center;
 
-            & div{
+            & #redes_sociais{
                 display: flex;
-                flex-direction: row;
-                margin-top: 6px;
-            }
-            
-            & #icons{
-                height: 35px;
-            }
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 30px;
+    
+                & div{
+                    display: flex;
+                    flex-direction: row;
+                    margin-top: 6px;
+    
+                    & a{
+                        text-decoration: none;
+                        color: inherit;
+                        cursor: pointer;
+                        font-size: 18px;
+                        margin-top: 10px;
+                        margin-left: 12px;
+                    }
+    
+                    & a:hover{
+                        transform: scale(1.1);
+                    }
 
-            & #titulo_rede{
-                font-size: 27px;
-                margin-top: 15;
+                    & p{
+                        margin-left: 12px;
+                    }
+                }
+                
+                & #icons{
+                    height: 35px;
+                }
+    
+                & #titulo_rede{
+                    font-size: 27px;
+                    margin-top: 15;
+                }
             }
         }
+        
+        
 
         & #footer_infos{
             display: flex;
