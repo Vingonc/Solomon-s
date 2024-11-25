@@ -31,11 +31,11 @@ function realizarLogin(){
 }
 
 function realizarCadastro(){
-    const caminho = "C:\Users\vinic\Desktop\Projetos\Projeto Individual\Solomon-s\Desenvolvimento\Site\Site Institucional\auth\auth.html"
+    const caminho = "file:///C:/Users/vinic/Desktop/Projetos/Projeto Individual/Solomon-s/Desenvolvimento/Site/Site Institucional/auth/auth.html"
     window.location.href = caminho;
 }
 
 function direcionarQuiz(){
-    const caminho = "C:\Users\vinic\Desktop\Projetos\Projeto Individual\Solomon-s\Desenvolvimento\Site\Site Institucional\quiz.html"
+    const caminho = "file:///C:/Users/vinic/Desktop/Projetos/Projeto Individual/Solomon-s/Desenvolvimento/Site/Site Institucional/quiz.html"
     window.location.href = caminho;
 }
