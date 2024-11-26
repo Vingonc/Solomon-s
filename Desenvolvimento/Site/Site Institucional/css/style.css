@@ -101,6 +101,7 @@ main{
     & #section_home{
         height: 642px;
         background-image: url("../assets/Fundo_home.png");
+        perspective: 50px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
