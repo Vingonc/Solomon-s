@@ -1,0 +1,564 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+/*-----Header-----*/
+header{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: #101010;
+  color: #ffffff;
+  border-bottom: 2px solid white;
+  font-family: "Playfair", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+
+  & h3{
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+  }
+  
+  & #logo{
+      display: flex;
+      align-items: center;
+      margin: 5px;
+
+      & img{
+          width: 50px;
+          padding-right: 15px;
+          padding-left: 10px;
+      }
+      
+      & #nome_site{
+          font-size: 27px;
+          font-family: "Playfair", serif;
+      }
+  }
+
+  & #links{
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 25px;
+      margin: 10px;
+
+      & .no_link {
+          text-decoration: none;
+          color: inherit;
+          cursor: pointer;
+          margin: 10px;
+      }
+
+      & .no_link:hover{
+          transform: scale(1.1);
+      }
+  }
+  
+  & #usuario{
+      display: flex;
+      align-items: center;
+
+      & button{
+          height: 30px;
+          font-size: 25px;
+          font-family: "Playfair", serif;
+          background-color: #ffffff;
+          border-radius: 5px;
+          border: none;
+      }
+
+      & button:hover{
+          transform: scale(1.1);
+          cursor: pointer;
+      }
+  }
+}
+/*-----Header-----*/
+
+/*-----Main-----*/
+main{
+  width: 100%;
+  color: #ffffff;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  .section_separador{
+      width: 100%;
+      height: 2px;
+      background-color: #ffffff solid;
+  }
+
+  & #section_home{
+      height: 642px;
+      background-image: url("../assets/Fundo_home.png");
+      perspective: 50px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 40px;
+
+      & p{
+          margin: 50px;
+          font-family: "Italiana", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 45px;
+          text-align: center;
+      }
+
+      & p:hover{
+          transform: scale(1.1);  
+      }
+  }
+
+  & #section_sobre{
+      width: 100%;
+      height: 750px;
+      background-image: url("../assets/Fundo_sobre.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      
+      & #informacoes{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding-left: 25px;
+          padding-right: 858px;
+
+          & h3{
+              font-size: 64px;
+              font-family: "Playfair", serif;
+              font-optical-sizing: auto;
+              font-style: normal;
+              font-variation-settings: "wdth" 100;
+              margin: 20px;
+          }
+          
+          & p{
+              font-size: 30px;
+              margin: 20px;
+              margin-top: 30px;
+          }
+      }
+  }
+
+  & #section_simular{
+      width: 100%;
+      height: 750px;
+      background-image: url("../assets/Fundo_simular.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & #cadastro{
+          display: flex;
+          position: relative;
+          align-items: center;
+
+          & #moldura{
+              width: 350px;
+              padding-left: 200px;
+          }
+
+          & #button_cadastro{
+              width: 250px;
+              height: 60px;
+              font-size: 40px;
+              font-family: "Playfair", serif;
+              background-color: #ffffff;
+              border-radius: 5px;
+              border: none;
+              position: absolute;
+              margin-left: 250px;
+              margin-bottom: 20px;
+          }
+
+          & #button_cadastro:hover{
+              transform: scale(1.1);
+              cursor: pointer;
+          }
+      }
+      
+      & p{
+          font-size: 30px;
+          text-align: center;
+          padding-left: 400px;
+          padding-right: 40px;
+      }
+  }
+
+  & #section_missao{
+      width: 100%;
+      height: 750px;
+      background-image: url("../assets/Fundo_missao.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      & div{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding-inline: 150px;
+          
+          & #titulo{
+              font-size: 60px;
+              font-family: "Playfair", serif;
+              font-optical-sizing: auto;
+              font-style: normal;
+              font-variation-settings: "wdth" 100;
+              margin-bottom: 15px;
+          }
+
+          & p{
+              font-size: 27px;
+              padding-top: 20px;
+          }
+
+          & button{
+              width: 150px;
+              height: 45px;
+              margin-top: 20px;
+              background-color: #ffffff;
+              border-radius: 20px;
+              border: none;
+              font-size: 35px;
+              text-align: center;
+          }
+
+          & button:hover{
+              transform: scale(1.1);
+              cursor: pointer;
+          }
+      }
+  }
+
+  & #section_carrocel{
+    width: 100%;
+    height: 720px;
+    background-color: #101010;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+
+      & #titulo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 25px;
+        margin-top: 5px;
+      }
+
+      & #sibtitulo{
+        font-size: 15px;
+        margin-top: 5px;
+      }
+
+      & #carrocel{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+
+        & .nav-btn{
+            height: 70px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        
+        & #direcionador_proverbios{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+
+            & .conjunto{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                & .bar_versiculos{
+                    width: 300px;
+                    height: 500px;
+                    background-color: #ffffff;
+                    border-radius: 10px;
+                    margin: 20px;
+                    flex-shrink: 0;
+                    transition: transform 0.5s ease;
+                    cursor: pointer;
+                
+                }
+
+                & p{
+                    font-size: 15px;
+                }
+            }
+
+            & #conselhos_de_um_pai{
+                background-image: url('../assets/conselhos.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            & #clamor_da_sabedoria{
+                background-image: url('../assets/clamor.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            & #proverbios_de_salomao{
+                background-image: url('../assets/salomao.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            & #ditados_dos_sabios{
+                background-image: url('../assets/sabios.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            & #ditados_de_agur{
+                background-image: url('../assets/agur.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+
+            & #ditados_rei_lemuel{
+                background-image: url('../assets/lemuel.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+      }
+    }
+
+  & #section_sobre_mim{
+      width: 100%;
+      height: 750px;
+      background-color: #101010;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      
+      & #informacoes{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin: 50px;
+
+          & p{
+              font-size: 30px;
+              padding-top: 22px;
+          }
+
+          & #titulo{
+              font-size: 48px;
+              padding-bottom: 8px;
+          }
+      }
+
+      #foto{
+          height: 600px;
+          padding-right: 40px;
+      }
+  }
+}
+
+footer{
+  color: #ffffff;
+  background-color: #101010;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+
+  & #section_contatos{
+      width: 100%;
+      height: 190px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("../assets/footer_fundo.png");
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      & a{
+          font-size: 20px;
+          text-decoration: none;
+          color: inherit;
+      }
+
+      & p{
+          font-size: 20px;
+      }
+      
+      & .icons{
+          height: 60px;
+      }
+
+      & img{
+          margin-bottom: 10px;
+      }
+
+      & #footer_email{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-left: 150px;
+      }
+
+      & #footer_local{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 95px;
+      }
+
+      & #footer_contato{
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 150px;
+      }
+  }
+
+  & #section_infos{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 250px;
+      
+
+      & p{
+          font-size: 18px;
+          margin-top: 10px;
+      }
+      
+      & #titulo{
+          font-size: 24px;
+          margin: 0;
+      }
+
+      & #logo{
+          margin-bottom: 25px;
+          margin-inline: 25px;
+          display: flex;
+
+          & img{
+              height: 200px;
+              padding-left: 20px;
+          }
+      }
+
+      & #logo_rede{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          & #redes_sociais{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              padding-left: 30px;
+  
+              & div{
+                  display: flex;
+                  flex-direction: row;
+                  margin-top: 6px;
+  
+                  & a{
+                      text-decoration: none;
+                      color: inherit;
+                      cursor: pointer;
+                      font-size: 18px;
+                      margin-top: 10px;
+                      margin-left: 12px;
+                  }
+  
+                  & a:hover{
+                      transform: scale(1.1);
+                  }
+
+                  & p{
+                      margin-left: 12px;
+                  }
+              }
+              
+              & #icons{
+                  height: 35px;
+              }
+  
+              & #titulo_rede{
+                  font-size: 27px;
+                  margin-top: 15;
+              }
+          }
+      }
+      
+      
+
+      & #footer_infos{
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+
+          & #footer_help{
+              display: flex;
+              flex-direction: column;
+              padding-inline: 20px;
+              text-align: center;
+          }
+
+          & #separadores{
+              margin-top: 20px;
+          }
+      }
+  }
+}

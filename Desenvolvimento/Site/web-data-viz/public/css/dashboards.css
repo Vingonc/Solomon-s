@@ -1,0 +1,385 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #161616;
+  height: 100%;
+}
+
+header{
+  width: 100%;
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: #101010;
+  color: #ffffff;
+  border-bottom: 2px solid white;
+  font-family: "Playfair", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+  
+  & #logo{
+      display: flex;
+      align-items: center;
+      margin: 5px;
+
+      & img{
+          width: 50px;
+          padding-right: 15px;
+          padding-left: 10px;
+      }
+      
+      & #nome_site{
+          font-size: 27px;
+          font-family: "Playfair", serif;
+      }
+  }
+
+  & #links{
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 25px;
+      margin: 10px;
+
+      & .no_link{
+          text-decoration: none;
+          color: inherit;
+          margin: 10px;
+      }
+
+      & .no_link:hover{
+          transform: scale(1.1);
+      }
+
+  }
+  
+  & #usuario{
+      display: flex;
+      align-items: center;
+
+      & button{
+          height: 30px;
+          font-size: 25px;
+          font-family: "Playfair", serif;
+          background-color: #ffffff;
+          border-radius: 5px;
+          border: none;
+      }
+
+      & img{
+          height: 50px;
+          margin: 20px;
+      }
+
+      & #menu_toggle{
+          & .bar{
+              width: 35px;
+              height: 5px;
+              background-color: #ffffff;
+              border-radius: 2px;
+              margin: 4px;
+              margin-left: 15px;
+              cursor: pointer;
+          }
+      }
+  }
+
+  & .side_menu{
+      position: fixed;
+      top: 0;
+      right: -250px; /* Menu começa fora da tela à direita */
+      width: 250px;
+      height: 100%;
+      background-color: #101010;
+      transition: right 0.3s ease; /* Animação para mover o menu */
+      z-index: 999;
+      margin-top: 73px;
+      color: #fff;
+      box-shadow: -5px 0 7px rgba(0, 0, 0, 0.5);
+      font-family: "Poppins", serif;
+      font-weight: 400;
+      font-style: normal;
+
+      & .conteudo_menu{
+          display: flex;
+          flex-direction: column;
+
+          & .titulo_menu{
+              background-color: #202020;
+              height: 50px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+
+          & #opcoes_menu{
+              display: flex;
+              flex-direction: column;
+
+              & div{
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  flex-direction: row;
+                  margin-right: 20px;
+
+                  & img{
+                      height: 25px;
+                  }
+              }
+
+          }
+      }
+  }
+
+  & .side_menu.active{
+      right: 0;
+  }
+
+
+}
+
+main{
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 88vh;
+
+  & #menu_estudos.hidden{
+          transform: translateX(-210px); /* Apenas 50px visíveis */
+
+          & #materias{
+              display: none;
+          }
+      }
+
+  & #menu_estudos{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #101010;
+      margin-top: 70px;
+      overflow-y: auto;
+      transition: transform 0.3s ease;
+
+      & #conteudo_estudos{
+          margin-bottom: 20px;
+
+          & #titulo_menu{
+              display: flex;
+              align-items: center;
+              height: 60px;
+              background-color: #202020;
+              cursor: pointer;
+              user-select: none;
+              padding-left: 10px;
+              
+              & p{
+                  font-size: 20px;
+                  margin-left: 85px;
+              }
+
+              & #toggle_icon{
+                  display: inline-block;
+                  margin-left: auto;
+                  margin-right: 10px;
+                  transform: rotate(0deg);
+                  transition: transform 0.3s ease;
+              }
+          }
+
+          & #materias{
+              & #separador{
+                  width: 100%;
+                  height: 0.5px;
+                  background-color: #ffffff;
+              }
+  
+              & #titulo_materia{
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  height: 38px;
+              }
+          }
+  
+          & li{
+              display: flex;
+              justify-content: space-between;
+              margin-left: 10px;
+              font-size: 13px;
+  
+              & input{
+                  margin-right: 10px;
+              }
+          }
+      }
+  }
+
+  
+
+  & #visao_estudos{
+      display: flex;
+      align-items: center;
+      margin-left: 115px;
+      margin-top: 30px;
+
+      & img{
+          height: 25px;
+          margin-right: 15px;
+      }
+
+      & p{
+          margin-right: 15px;
+      }
+      
+      & select{
+          height: 19px;
+          border: none;
+          background-color: #ffffff;
+          font-family: "Poppins", serif;
+          font-weight: 400;
+          font-style: normal;
+          border-radius: 5px;
+      }
+  }
+
+  & #dash{
+      margin: 25px;
+      display: flex;
+      justify-content: space-around;
+      flex-grow: 1;
+
+      & .kpi_titulo{
+          font-size: 22px;
+      }
+
+      & #visaoProdutividadeGeral{
+          width: 700px;
+          height: 450px;
+          border-radius: 12px;
+          background-color: #ffffff;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-left: 30px;
+
+          & #titulo{
+              width: 700px;
+              height: 70px;
+              background-color: #202020;
+              border-top-left-radius: 9px;
+              border-top-right-radius: 9px;
+              display: flex;
+              text-align: center;
+              align-items: center;
+              justify-content: center;
+          }
+
+          & #grafico{
+              display: flex;
+              align-items: end;
+              margin-bottom: 20px;
+              width: 700px;
+              height: 500px;
+          }
+      }
+
+      & #visaoSecundaria{
+          width: 450px;
+          height: 450px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          margin-right: 30px;
+
+          & .kpi_dado{
+              font-size: 20px;
+          }
+
+          & #kpis{
+              display: flex;
+              justify-content: space-between;
+
+              & img{
+                  height: 40px;
+              }
+
+              & #titulo{
+                  background-color: #202020;
+                  width: 200px;
+                  height: 35px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-top-left-radius: 7px;
+                  border-top-right-radius: 7px;
+                  position: absolute;
+              }
+
+              & .kpi_informacao{
+                  background-color: #ffffff;
+                  width: 200px;
+                  height: 150px;
+                  border-radius: 10px;
+
+                  & .kpi_conteudo{
+                      width: 100%;
+                      height: 100%;
+                      color: #101010;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      margin-top: 15px;
+                  }
+
+                  & #conteudo_progressao{
+                      & img{
+                          margin-right: 10px;
+                      }
+                  }
+              }
+          }
+
+          & #div_visaoMaterias{
+              display: flex;
+              flex-direction: column;
+              background-color: #ffffff;
+              border-radius: 10px;
+              height: 300px;
+              width: 100%;
+              margin-top: 15px;
+
+              & #titulo{
+                  background-color: #202020;
+                  width: 450px;
+                  height: 38px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-top-left-radius: 7px;
+                  border-top-right-radius: 7px;
+              }
+
+              & #materiasRealizadas{
+                  width: 100%;
+                  display: flex;
+                  align-items: end;
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Solomon's</title>
+
+    <link rel="icon" href="assets/Logo.png">
+    <link rel="stylesheet" href="css/estilo.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- /HEADER SECTION -->
+
+    <header id="header">
+        <nav id="logo">
+            <div>
+                <img src="assets/Logo.png">
+            </div>
+            <div id="nome_site">
+                <h3 onclick="select_menu('link_home')">Solomon’s</h3>
+            </div>
+        </nav>
+        <nav id="links">
+            <div>
+                <a class="no_link" onclick="select_menu('link_home')" id="link_home">Home</a>
+                <a class="no_link" onclick="select_menu('link_missao')" id="link_missao">Missão</a>
+                <a class="no_link" onclick="select_menu('link_sobre')" id="link_sobre">Sobre mim</a>
+            </div>
+            <div id="usuario">
+                <span>|</span>
+                <a class="no_link" href="cadastro.html">Cadastrar-se</a>
+                <button onclick="realizarLogin()">Entrar</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- /HEADER SECTION -->
+
+    <!-- MAIN SECTION -->
+    <main>
+        <!-- /HOME SECTION -->
+        <section id="section_home">
+            <div>
+                <p>“É melhor adquirir sabedoria que ouro, e é melhor obter discernimento que prata.” (Provérbios 16:16)
+                </p>
+            </div>
+            <div>
+                <p>Em dúvida sobre como organizar os seus estudos?
+                    A Solomon’s é um tesouro para os que buscam conhecimento!</p>
+            </div>
+        </section>
+        <!-- /HOME SECTION -->
+
+        <div class="section_separador"></div>
+
+        <!-- SECTION SOBRE -->
+        <section id="section_sobre">
+            <div id="informacoes">
+                <h3>Sobre</h3>
+                <img id="separador" src="assets/Separador.png">
+                <p>A Solomon’s é um ambiente de incentivo e organização para os estudos, afim de torna-lo mais agradável e fluído para todos os que desejam se lançar na vida intelectual.</p>
+            </div>
+        </section>
+        <!-- SECTION SOBRE -->
+
+        <div class="section_separador"></div>
+        
+        <!-- SECTION SIMULAR -->
+        <section id="section_simular">
+            <div id="cadastro">
+                <div>
+                    <img id="moldura" src="assets/Moldura_simular.png">
+                </div>
+                <button id="button_cadastro" onclick="realizarCadastro()">Cadastrar-se</button>
+            </div>
+            <div>
+                <p>Através da Solomon’s você tem um direcionamento para um plano de estudos com base nas suas preferências e características! Tornando a jornada de estudo mais fácil, agradável e prazerosa!</p>
+            </div>
+        </section>
+        <!-- SECTION SIMULAR -->
+
+        <div class="section_separador"></div>
+
+        <!-- SECTION MISSÃO -->
+        <section id="section_missao">
+            <div>
+                <p id="titulo">Provérbios</p>
+                <div>
+                    <img src="assets/Separador_missao.png">
+                </div>
+                <p>Escrito por volta de 400 a.C., o livro de Provérbios é uma obra milenar que se mantém relevante por seus ensinamentos práticos e atemporais. Suas lições incentivam a reflexão, a busca por conhecimento e a aplicação da sabedoria no dia a dia, promovendo o desenvolvimento intelectual e pessoal.</p>
+                <p>Com conselhos diretos e de fácil compreensão, Provérbios estimula habilidades como disciplina, paciência e aprendizado constante, essenciais para o progresso nos estudos. Sua estrutura concisa também facilita a memorização, tornando-o um recurso valioso para fortalecer o raciocínio e o pensamento crítico.</p>
+                <button onclick="direcionarQuiz()">QUIZ</button>
+            </div>
+        </section>
+        <!-- SECTION SIMULAR -->
+
+        <div class="section_separador"></div>
+
+        <!-- SECTION CARROCEL -->
+        <section id="section_carrocel">
+            <div id="titulo">
+                <p>Navegue em um mar de sabedoria!</p>
+                <div id="imagem">
+                    <img src="assets/Separador.png">
+                </div>
+                <p id="sibtitulo">Principais partes do livro de Provérbios</p>
+            </div>
+
+            <div id="carrocel">
+                <img class="nav-btn" id="prev-btn" src="assets/seta_esquerda.png" onclick="moverEsquerda()">
+                <div id="direcionador_proverbios">
+                    <div class="conjunto">
+                        <div class="bar_versiculos" id="conselhos_de_um_pai" onclick="direcionarProverbios3()">
+                        </div>
+                        <p>Conselhos de um pai</p>
+                    </div>
+
+                    <div class="conjunto">
+                        <div class="bar_versiculos" id="clamor_da_sabedoria" onclick="direcionarProverbios8()">
+                        </div>
+                        <p>O clamor da sabedoria</p>
+                    </div>
+    
+                    <div class="conjunto">
+                        <div class="bar_versiculos" id="proverbios_de_salomao" onclick="direcionarProverbios10()">
+                        </div>
+                        <p>Provérbios de Salomão</p>
+                    </div>
+
+                    <div class="conjunto">
+                        <div class="bar_versiculos" id="ditados_dos_sabios" onclick="direcionarProverbios22()">
+                        </div>
+                        <p>Ditados dos sábios</p>
+                    </div>
+
+                    <div class="conjunto">
+                        <div class="bar_versiculos" id="ditados_de_agur" onclick="direcionarProverbios30()">
+                        </div>
+                        <p>Ditados de Agur</p>
+                    </div>
+
+                    <div class="conjunto">
+                        <div class="bar_versiculos" id="ditados_rei_lemuel" onclick="direcionarProverbios31()">
+                        </div>
+                        <p>Ditados do rei Lemuel</p>
+                    </div>
+                </div>
+                <img class="nav-btn" id="next-btn" src="assets/seta_direita.png" onclick="moverDireita()">
+            </div>
+        </section>
+        <!-- SECTION CARROCEL -->
+
+        <div class="section_separador"></div>
+
+        <!-- SECTION SOBRE MIM -->
+        <section id="section_sobre_mim">
+            <div id="informacoes">
+                <p id="titulo">Sobre mim</p>
+                <div>
+                    <img src="assets/Separador.png">
+                </div>
+                <p>Olá, sou Vinicius Gonçalves, tenho 21 anos e sou estudante de Análise e Desenvolvimento de Sistemas e sou apaixonado por tecnologia e as suas utilidades para o desenvolvimento humano.</p>
+                <p>Quando tinha 15 anos, tive meu primeiro contato com o livro de provérbios, que traz conselhos sobre estudos, trabalho, finanças, honestidade e justiça, o que mudou a minha vida e me guiou na minha busca por ascensão pessoal.</p>
+            </div>
+
+            <div>
+                <img id="foto" src="assets/Sobremim_foto.png">
+            </div>
+        </section>
+        <!-- SECTION SOBRE MIM -->
+    </main>
+    <!-- MAIN SECTION -->
+
+    <!-- /FOOTER SECTION -->
+    <footer>
+        <section id="section_contatos">
+            <div id="footer_email">
+                <div>
+                    <img class="icons" src="assets/footer_contato.png"><br>
+                </div>
+                <a href="">vinicius.gcosta@sptech.school</a>
+            </div>
+
+            <div id="footer_local">
+                <div>
+                    <img class="icons" src="assets/footer_local.png"><br>
+                </div>
+                <a href="">R. Haddock Lobo, 595</a>
+            </div>
+
+            <div id="footer_contato">
+                <div>
+                    <img class="icons" src="assets/footer_tel.png">
+                </div>
+                <p>(11) 98824-2705</p>
+            </div>
+        </section>
+        
+        <section id="section_infos">
+            <div id="logo_rede">
+                <div id="logo">
+                    <img src="assets/Footer - Logo.png">
+                </div>
+    
+                <div id="redes_sociais">
+                    <p id="titulo_rede">Redes Sociais</p>
+                    <div>
+                        <img src="assets/footer_separador.png">
+                    </div>
+    
+                    <div>
+                        <div id="icons">
+                            <img src="assets/instagram.png">
+                        </div>
+                        <p>@SolomonsOf</p>
+                    </div>
+    
+                    <div>
+                        <div id="icons">
+                            <img src="assets/linkedin.png">
+                        </div>
+                        <a href="https://www.linkedin.com/in/vinicius-gonçalves-aa3031229/">Linkedin</a>
+                    </div>
+    
+                    <div>
+                        <div id="icons">
+                            <img src="assets/mail.png">
+                        </div>
+                        <a>contato@solomons.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="footer_infos">
+                <div id="footer_help">
+                    <p id="titulo">Sobre</p>
+                    <p>Política</p>
+                    <p>Termos</p>
+                </div>
+                <div id="separadores">
+                    <img src="assets/footer_separador2.png">
+                </div>
+                <div id="footer_help">
+                    <p id="titulo">Suporte</p>
+                    <p>Contato</p>
+                    <p>Suporte</p>
+                </div>
+                <div id="separadores">
+                    <img src="assets/footer_separador2.png">
+                </div>
+                <div id="footer_help">
+                    <p id="titulo">Acesso</p>
+                    <p>Cadastrar</p>
+                    <p>Entrar</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+    <!-- /FOOTER SECTION -->
+</body>
+</html>
+
+<script src="js/sessao.js"></script>
