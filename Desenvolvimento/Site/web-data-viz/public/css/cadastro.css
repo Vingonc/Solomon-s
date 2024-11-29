@@ -66,6 +66,28 @@ main{
         & p{
             font-size: 30px;
         }
+
+        & .alerta_erro{
+            display: flex;
+            justify-content: flex-end;
+        }
+          
+        & .card_erro {
+            display: none;
+            background-color: #fff;
+            color: black;
+            width: 230px;
+            position: fixed;
+            border-radius: 4px;
+            border: #f78d1d 3px solid;
+            padding: 10px;
+            margin-right: 10%;
+        }
+          
+        & .card_erro #mensagem_erro{
+            font-weight: 500;
+            font-size: 20px;
+        }
     
         & button{
             height: 40px;
@@ -132,6 +154,20 @@ main{
                 height: 35px;
                 border-radius: 5px;
                 border: none;
+            }
+
+            & .loading-div {
+                width: 50px;
+                display: none;
+            }
+              
+            & .loading-div img {
+                height: 50px;
+                width: 50px;
+            }
+              
+            & #div_erros_login {
+                display: none
             }
         }
     }

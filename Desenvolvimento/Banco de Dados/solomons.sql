@@ -26,5 +26,4 @@ foreign key (fkMateria)
 references materias (idMateria)
 );
 
-
-
+select * from usuario;
