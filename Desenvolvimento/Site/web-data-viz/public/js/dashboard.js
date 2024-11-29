@@ -172,158 +172,303 @@ toggleIcon.addEventListener('click', function () {
     toggleIcon.style.transform = menu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
 });
 
+// Muda o conteúdo de Aulas com base na matéria selecionada
+const selectMateria = document.getElementById('materia')
 
-const materia = document.getElementById('materia').value
+selectMateria.addEventListener('change', function() {
+    const materia = selectMateria.value
 
-if(materia == 'teologia'){
-    document.getElementById('materias').innerHTML = 
-    `<div id="titulo_materia">
-                        <p>Teologia</p>
-                    </div>
-                    <ul id="submenu">
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=2'>Aula 1 - A IMPORTÂNCIA DA DOUTRINA BÍBLICA</a> 
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=5'>Aula 2 - INTERPRETAÇÃO BÍBLICA</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=6'>Aula 3 - A EXISTÊNCIA DE DEUS</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=ekf46Kpnvlc&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=7'>Aula 4 - O MISTÉRIO DA TRINDADE</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=11'>Aula 5 - A CRIAÇÃO</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=16'>Aula 6 - A VOLTA DE JESUS</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=20'>Aula 7 - O BATISMO EM ÁGUA</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=27'>Aula 8 - CRIAÇÃO E QUEDA DO HOMEM</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=29'>Aula 9 - O NOVO NASCIMENTO</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=38'>Aula 10 - A JUSTIFICAÇÃO</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=36'>Aula 11 - A SANTIFICAÇÃO</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=40'>Aula 12 - A GLORIFICAÇÃO</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=53'>Aula 13 - OS DONS DO ESPÍRITO</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=67'>Aula 14 - A LEITURA BÍBLICA</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=66'>Aula 15 - POR QUE ORAR?</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=68'>Aula 16 - O JEJUM</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=KmpucxGB1jA&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf'>Aula 17 - A História do Cristianismo | Episódio 01</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=xyE4U2oFbGU&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=2'>Aula 18 - A História do Cristianismo | Episódio 2</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=3'>Aula 19 - A História do Cristianismo | Episódio 3</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=4'>Aula 20 - A História do Cristianismo | Episódio 4</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=5'>Aula 21 - A História do Cristianismo | Episódio 5</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=6'>Aula 22 - A História do Cristianismo | Episódio 6</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=7'>Aula 23 - A História do Cristianismo | Episódio Extra</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                    </ul>`
-} else if (materia == 'financas'){
-    document.getElementById('materias').innerHTML =
-    `<div id="titulo_materia">
-                        <p>Finanças</p>
-                    </div>
-                    <ul id="submenu">
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=1ulzj3dJ4EA'>Aula 1 - Como funciona a economia?</a> 
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=nQ22jWH75WQ'>Aula 2 - Previdência Social</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=a6V3ys4xEQU'>Aula 3 - CLT</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=xzkiUwM8cz0'>Aula 4 - Imposto</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=W_kfS2boa_Y'>Aula 5 - Como funciona a bolsa de valores?</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=PtAkxzMhobQ'>Aula 6 - Como começar a investir</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=eMDgWLWOX84'>Aula 7 - Como montar uma carteira de investimentos</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=-sGOvusS5NI'>Aula 8 - Investimentos iniciais</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=z3fTzc0q10M'>Aula 9 - Fundos Imobiliarios</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                        <li><a href = 'https://www.youtube.com/watch?v=R4X1Ktv16bA'>Aula 10 - Cripto moedas</a>
-                            <input type="checkbox">
-                        </li>
-                        <div id="separador"></div>
-                    </ul>`
-} else if (materia == 'politica'){
-    document.getElementById('materias').innerHTML =
-    ``
-}
+    if(materia == 'teologia'){
+        document.getElementById('materias').innerHTML = 
+        `<div id="titulo_materia">
+                            <p>Teologia</p>
+                        </div>
+                        <ul id="submenu">
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=2'>Aula 1 - A IMPORTÂNCIA DA DOUTRINA BÍBLICA</a> 
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=5'>Aula 2 - INTERPRETAÇÃO BÍBLICA</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=6'>Aula 3 - A EXISTÊNCIA DE DEUS</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=ekf46Kpnvlc&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=7'>Aula 4 - O MISTÉRIO DA TRINDADE</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=11'>Aula 5 - A CRIAÇÃO</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=16'>Aula 6 - A VOLTA DE JESUS</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=20'>Aula 7 - O BATISMO EM ÁGUA</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=27'>Aula 8 - CRIAÇÃO E QUEDA DO HOMEM</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=29'>Aula 9 - O NOVO NASCIMENTO</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=38'>Aula 10 - A JUSTIFICAÇÃO</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=36'>Aula 11 - A SANTIFICAÇÃO</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=40'>Aula 12 - A GLORIFICAÇÃO</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=53'>Aula 13 - OS DONS DO ESPÍRITO</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=67'>Aula 14 - A LEITURA BÍBLICA</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=66'>Aula 15 - POR QUE ORAR?</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Y2enuVGKyCQ&list=PL7BFepC9j7U1egnY7Wk9ej-8T4aj2DStb&index=68'>Aula 16 - O JEJUM</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=KmpucxGB1jA&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf'>Aula 17 - A História do Cristianismo | Episódio 01</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=xyE4U2oFbGU&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=2'>Aula 18 - A História do Cristianismo | Episódio 2</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=3'>Aula 19 - A História do Cristianismo | Episódio 3</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=4'>Aula 20 - A História do Cristianismo | Episódio 4</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=5'>Aula 21 - A História do Cristianismo | Episódio 5</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=6'>Aula 22 - A História do Cristianismo | Episódio 6</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=mjgNsyPDA4k&list=PLZ4pKq9EIdzxzr5269KlYThKXeEVL6BVf&index=7'>Aula 23 - A História do Cristianismo | Episódio Extra</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                        </ul>`
+    } else if (materia == 'financas'){
+        document.getElementById('materias').innerHTML =
+        `<div id="titulo_materia">
+                            <p>Finanças</p>
+                        </div>
+                        <ul id="submenu">
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=1ulzj3dJ4EA'>Aula 1 - Como funciona a economia?</a> 
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=nQ22jWH75WQ'>Aula 2 - Previdência Social</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=a6V3ys4xEQU'>Aula 3 - CLT</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=xzkiUwM8cz0'>Aula 4 - Imposto</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=W_kfS2boa_Y'>Aula 5 - Como funciona a bolsa de valores?</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=PtAkxzMhobQ'>Aula 6 - Como começar a investir</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=eMDgWLWOX84'>Aula 7 - Como montar uma carteira de investimentos</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=-sGOvusS5NI'>Aula 8 - Investimentos iniciais</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=z3fTzc0q10M'>Aula 9 - Fundos Imobiliarios</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=R4X1Ktv16bA'>Aula 10 - Cripto moedas</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                        </ul>`
+    } else if (materia == 'politica'){
+        document.getElementById('materias').innerHTML =
+        `<div id="titulo_materia">
+                            <p>Politica</p>
+                        </div>
+                        <ul id="submenu">
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=nJlL0C4LTUs'>Aula 1 - Os espectros políticos</a> 
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=90N6xRU58Vo'>Aula 2 - Sistema politico brasileiro</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=0oRGiD9Birs'>Aula 3 - O que é o Anarcocaptalismo</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=img7c4DUOlI'>Aula 4 - Revolução industrial</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=OHrriEnWdGw'>Aula 5 - Revolução francesa</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=zgXxNbOuUIg'>Aula 6 - Revolução russa</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=KhbqKPb-k4I'>Aula 7 - O Holomodor</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=QzDkhz-4zHs'>Aula 8 - Russia x Ucrânia</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=qJvgXqKYeKg'>Aula 9 - Israel x Hamas</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=wuD8cShgWb8'>Aula 10 - Geopolítica da América do Sul</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                        </ul>`
+    } else if (materia == 'desenvolvimento'){
+        document.getElementById('materias').innerHTML =
+        `<div id="titulo_materia">
+                            <p>Desenvolvimento Pessoal</p>
+                        </div>
+                        <ul id="submenu">
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=nJlL0C4LTUs'>Aula 1 - Os espectros políticos</a> 
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=90N6xRU58Vo'>Aula 2 - Sistema politico brasileiro</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=0oRGiD9Birs'>Aula 3 - O que é o Anarcocaptalismo</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=img7c4DUOlI'>Aula 4 - Revolução industrial</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=OHrriEnWdGw'>Aula 5 - Revolução francesa</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=zgXxNbOuUIg'>Aula 6 - Revolução russa</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=KhbqKPb-k4I'>Aula 7 - O Holomodor</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=QzDkhz-4zHs'>Aula 8 - Russia x Ucrânia</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=qJvgXqKYeKg'>Aula 9 - Israel x Hamas</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=wuD8cShgWb8'>Aula 10 - Geopolítica da América do Sul</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                        </ul>`
+    } else if (materia == 'programacao'){
+        document.getElementById('materias').innerHTML =
+        `<div id="titulo_materia">
+                            <p>Programação</p>
+                        </div>
+                        <ul id="submenu">
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=nJlL0C4LTUs'>Aula 1 - Os espectros políticos</a> 
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=90N6xRU58Vo'>Aula 2 - Sistema politico brasileiro</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=0oRGiD9Birs'>Aula 3 - O que é o Anarcocaptalismo</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=img7c4DUOlI'>Aula 4 - Revolução industrial</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=OHrriEnWdGw'>Aula 5 - Revolução francesa</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=zgXxNbOuUIg'>Aula 6 - Revolução russa</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=KhbqKPb-k4I'>Aula 7 - O Holomodor</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=QzDkhz-4zHs'>Aula 8 - Russia x Ucrânia</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=qJvgXqKYeKg'>Aula 9 - Israel x Hamas</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=wuD8cShgWb8'>Aula 10 - Geopolítica da América do Sul</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                        </ul>`
+    } 
+})
