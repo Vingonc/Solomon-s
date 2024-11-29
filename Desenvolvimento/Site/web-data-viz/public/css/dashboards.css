@@ -157,7 +157,7 @@ main{
   height: 88vh;
 
   & #menu_estudos.hidden{
-          transform: translateX(-210px); /* Apenas 50px visíveis */
+          transform: translateX(-360px); /* Apenas 50px visíveis */
 
           & #materias{
               display: none;
@@ -168,7 +168,7 @@ main{
       position: fixed;
       top: 0;
       left: 0;
-      width: 250px;
+      width: 400px;
       height: 100%;
       background-color: #101010;
       margin-top: 70px;
@@ -185,7 +185,7 @@ main{
               background-color: #202020;
               cursor: pointer;
               user-select: none;
-              padding-left: 10px;
+              padding-left: 90px;
               
               & p{
                   font-size: 20px;
@@ -213,6 +213,11 @@ main{
                   align-items: center;
                   justify-content: center;
                   height: 38px;
+              }
+
+              & a{
+                text-decoration: none;
+                color: inherit;
               }
           }
   
