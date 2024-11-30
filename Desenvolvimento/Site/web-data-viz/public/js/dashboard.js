@@ -373,6 +373,26 @@ selectMateria.addEventListener('change', function() {
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=uvnBt5Qsfh4'>Aula 11 - Terceira guerra?</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=iYoHysNjJT0'>Aula 12 - Coreia do Norte</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=yTenWQHRPIg'>Aula 13 - 1964</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=Ue77esm5Kqs'>Aula 14 - O teatro das tesouras</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
+                            <li><a href = 'https://www.youtube.com/watch?v=4aqhPpHlm1c'>Aula 15 - O teatro das tesouras | Parte 2</a>
+                                <input type="checkbox">
+                            </li>
+                            <div id="separador"></div>
                         </ul>`
     } else if (materia == 'desenvolvimento'){
         document.getElementById('materias').innerHTML =
@@ -381,43 +401,43 @@ selectMateria.addEventListener('change', function() {
                         </div>
                         <ul id="submenu">
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=nJlL0C4LTUs'>Aula 1 - Os espectros políticos</a> 
+                            <li><a href = 'https://www.youtube.com/watch?v=MN9ZjjB9800'>Aula 1 - Rotina de sono</a> 
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=90N6xRU58Vo'>Aula 2 - Sistema politico brasileiro</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=oBy0vFnPcps'>Aula 2 - Postura</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=0oRGiD9Birs'>Aula 3 - O que é o Anarcocaptalismo</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=yoQ48gCiD08'>Aula 3 - Exercícios</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=img7c4DUOlI'>Aula 4 - Revolução industrial</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=451BoWEb7bI'>Aula 4 - Dicas para Exercicios</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=OHrriEnWdGw'>Aula 5 - Revolução francesa</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=miGOf-EPBwo'>Aula 5 - Guia completo do desenvolvimento</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=zgXxNbOuUIg'>Aula 6 - Revolução russa</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=DykuOqEnYYM'>Aula 6 - Dessexualizar o Seu Cérebro</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=KhbqKPb-k4I'>Aula 7 - O Holomodor</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=v9Id3UnTVlk'>Aula 7 - Leiturar</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=QzDkhz-4zHs'>Aula 8 - Russia x Ucrânia</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=uy7XLzAaww4'>Aula 8 - Distrações</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=qJvgXqKYeKg'>Aula 9 - Israel x Hamas</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=_NIBRyOqBAQ'>Aula 9 - Estilo minimalista</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=wuD8cShgWb8'>Aula 10 - Geopolítica da América do Sul</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=A_xG3HSZ8Ac'>Aula 10 - Comunicação</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
@@ -429,43 +449,39 @@ selectMateria.addEventListener('change', function() {
                         </div>
                         <ul id="submenu">
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=nJlL0C4LTUs'>Aula 1 - Os espectros políticos</a> 
+                            <li><a href = 'https://www.youtube.com/watch?v=A1BaZr82XJI'>Aula 1 - Dicas e caminhos da para a programação</a> 
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=90N6xRU58Vo'>Aula 2 - Sistema politico brasileiro</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=jgQjeqGRdgA&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n&index=2'>Aula 2 - HTML e CSS</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=0oRGiD9Birs'>Aula 3 - O que é o Anarcocaptalismo</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=1-w1RfGIov4&list=PLHz_AreHm4dlsK3Nr9GVvXCbpQyHQl1o1'>Aula 3 - Javascript</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=img7c4DUOlI'>Aula 4 - Revolução industrial</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=xEKo29OWILE&list=PLHz_AreHm4dm7ZULPAmadvNhH6vk9oNZA'>Aula 4 - Git e GitHub</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=OHrriEnWdGw'>Aula 5 - Revolução francesa</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=KvPtIl-Gz2E&list=PLHz_AreHm4dlaTyjolzCFC6IjLzO8O0XV'>Aula 5 - Segurança da Informação</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=zgXxNbOuUIg'>Aula 6 - Revolução russa</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=iT6E92Kt38o&list=PLHz_AreHm4dn1JHgN9wpbIUhzZmycYQXW'>Aula 6 - Hardware</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=KhbqKPb-k4I'>Aula 7 - O Holomodor</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=6nN2EglOqCM&list=PLHz_AreHm4dlIXleu20uwPWFOSswqLYbV'>Aula 7 - Linux</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=QzDkhz-4zHs'>Aula 8 - Russia x Ucrânia</a>
+                            <li><a href = 'https://www.youtube.com/watch?v=jQMbuK6URws&list=PLHz_AreHm4dm24MhlWJYiR_Rm7TFtvs6S'>Aula 8 - Inteligência artificial</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=qJvgXqKYeKg'>Aula 9 - Israel x Hamas</a>
-                                <input type="checkbox">
-                            </li>
-                            <div id="separador"></div>
-                            <li><a href = 'https://www.youtube.com/watch?v=wuD8cShgWb8'>Aula 10 - Geopolítica da América do Sul</a>
+                            <li><a href = 'https://www.w3schools.com'>Extra - Site para ajuda</a>
                                 <input type="checkbox">
                             </li>
                             <div id="separador"></div>
