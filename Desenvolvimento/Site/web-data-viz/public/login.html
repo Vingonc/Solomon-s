@@ -69,17 +69,15 @@
 
 
     function entrar() {
-
         var emailVar = email_input.value;
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
+            cardErro.style.display = "block";
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
             return false;
-        }
-        else {
-            setInterval(sumirMensagem, 5000)
+        } else {
+            setInterval(sumirMensagem, 5000);
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -95,36 +93,34 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+            console.log("ESTOU NO THEN DO entrar()!");
 
             if (resposta.ok) {
-                console.log(resposta);
-
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    console.log("Resposta da API:", json);  // Verifique a resposta da API
+                    if (json.idUsuario) {
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;  // Armazena o ID do usuário
+                        console.log("ID do usuário armazenado:", sessionStorage.ID_USUARIO);
 
-                    setTimeout(function () {
-                        window.location = "./dashboard/dashboard.html";
-                    }, 1000); // apenas para exibir o loading
-
+                        // Redireciona para a dashboard após 1 segundo
+                        setTimeout(function () {
+                            window.location = "./dashboard/dashboard.html";
+                        }, 1000); // Apenas para exibir o loading
+                    } else {
+                        console.error("ID do usuário não encontrado na resposta!");
+                    }
                 });
-
             } else {
-
                 console.log("Houve um erro ao tentar realizar o login!");
-
                 resposta.text().then(texto => {
                     console.error(texto); 
                 });
             }
-
         }).catch(function (erro) {
             console.log(erro);
-        })
+        });
 
         return false;
     }

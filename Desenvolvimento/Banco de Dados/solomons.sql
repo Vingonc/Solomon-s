@@ -1,4 +1,5 @@
 create database solomons;
+drop database solomons;
 
 use solomons;
 
@@ -9,21 +10,19 @@ email varchar(225),
 senha varchar(45)
 );
 
-create table materias(
-idMateria int primary key auto_increment,
-nomeMateria varchar(45),
+create table produtividade(
+idRegistro int primary key auto_increment,
+qtdAulas int,
 fkUsuario int,
 foreign key (fkUsuario)
 references usuario (idUsuario)
 );
 
-create table aula(
-idAula int auto_increment,
-nomeAula varchar(100),
-fkMateria int,
-primary key (idAula, fkMateria),
-foreign key (fkMateria)
-references materias (idMateria)
+create table quiz(
+tentativa int primary key auto_increment,
+qtdRespostas int
 );
 
 select * from usuario;
+
+select * from produtividade;
