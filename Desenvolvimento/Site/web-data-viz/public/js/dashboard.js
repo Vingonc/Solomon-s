@@ -1,4 +1,4 @@
-const labels = [
+/*const labels = [
     '1°',
     '2°',
     '3°',
@@ -8,14 +8,14 @@ const labels = [
     '7°',
     '8°',
     '9°',
-];
+];*/
 
-const estadoAulas =[
+/*const estadoAulas =[
     'Pendente',
     'Realizadas',
-]
+]*/
 
-const data = {
+/*const data = {
     labels: labels,
     datasets: [{
         label: 'Meta Atingida',
@@ -43,9 +43,9 @@ const data = {
         fill: false,
         pointBackgroundColor: 'rgb(242, 172, 172)',
     }]
-}
+}*/
 
-const aulas = {
+/*const aulas = {
     labels: estadoAulas,
     datasets: [{
         label: 'Pendetes',
@@ -59,9 +59,9 @@ const aulas = {
         borderColor: 'rgb(79, 122, 63)',
         data: [0, 10],
     }]
-}
+}*/
 
-const config = {
+/*const config = {
     type: 'line',
     data: data,
     options: {
@@ -97,9 +97,9 @@ const config = {
             }
         }
     }
-}
+}*/
 
-const config2 = {
+/*const config2 = {
     type: 'bar',
     data: aulas,
     options: {
@@ -135,19 +135,19 @@ const config2 = {
             }
         }
     }
-}
+}*/
 
 
 
-const myChart = new Chart(
+/*const myChart = new Chart(
     document.getElementById('myChart'),
     config
-)
+)*/
 
-const chartMetas = new Chart(
+/*const chartMetas = new Chart(
     document.getElementById('chartMetas'),
     config2
-)
+)*/
 
 
 // Selecionando o botão de toggle e o menu lateral

@@ -1,6 +1,19 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas() {
+function buscarTotais(idUsuario) {
+    const instrucaoSql = `
+        SELECT 
+            SUM(qtdAulas) AS totalAulas,
+            COUNT(*) AS totalSequencias
+        FROM produtividade
+        WHERE fkUsuario = ${idUsuario};
+    `;
+
+    console.log("Executando a instrução SQL:\n", instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarUltimasMedidas(idUsuario) {
 
     var instrucaoSql = `
         SELECT 
@@ -8,8 +21,9 @@ function buscarUltimasMedidas() {
             idRegistro AS dado,
             fkUsuario
         FROM produtividade
+        WHERE fkUsuario = ${idUsuario}
         ORDER BY idRegistro DESC
-        LIMIT 10;
+        LIMIT 9;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -18,9 +32,7 @@ function buscarUltimasMedidas() {
 
 function registrarProdutividade(qtdAulas, fkUsuario) {
     var instrucaoSql = `
-        INSERT INTO produtividade (qtdAulas, fkUsuario)
-        VALUES (${qtdAulas}, ${fkUsuario});
-    `;
+        INSERT INTO produtividade (qtdAulas, fkUsuario) VALUES (${qtdAulas}, ${fkUsuario}); `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -42,6 +54,7 @@ function registrarProdutividade(qtdAulas, fkUsuario) {
 
 module.exports = {
     buscarUltimasMedidas,
-    registrarProdutividade
+    registrarProdutividade,
+    buscarTotais
     //buscarMedidasEmTempoReal
 }

@@ -58,7 +58,7 @@
                             </div>
                             <div>
                                 <img src="../assets/dashboard/sair.png" alt="">
-                                <p>Sair</p>
+                                <a href="../login.html">Sair</a>
                             </div>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                         </div>
                         <div class="kpi_conteudo" id="conteudo_consistencia">
                             <img src="../assets/dashboard/raio (1).png">
-                            <span id="dias_consistencia" class="kpi_dado">0 Dias</span>
+                            <span id="sequencias_consistencia" class="kpi_dado">0 Sequências</span>
                         </div>
                     </div>
     
@@ -203,7 +203,7 @@
                         </div>
                         <div class="kpi_conteudo" id="conteudo_progressao">
                             <img src="../assets/dashboard/progressao-grafica.png">
-                            <p class="kpi_dado">50/10</p>
+                            <span id="aulas_progressao" class="kpi_dado">65/0</span>
                         </div>
                     </div>
                 </div>
@@ -230,10 +230,15 @@
 <script>
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-let proximaAtualizacao;
+    let graficoAtual = null;
 
-var idUsuario = sessionStorage.ID_USUARIO;
-console.log(idUsuario);  // Vai imprimir o ID armazenado
+    var idUsuario = sessionStorage.ID_USUARIO;
+    console.log(idUsuario);  // Vai imprimir o ID armazenado
+
+    window.onload = function() {
+        atualizarKPIs();
+        obterDadosGrafico();
+    };
 
 /*window.onload = exibirAquariosDoUsuario();
 
@@ -257,7 +262,6 @@ function exibirAquariosDoUsuario() {
                 </div>
             </div>
         `
-
         obterDadosGrafico(item.id)
     });
 
@@ -304,44 +308,87 @@ function exibirAquario(idAquario) {
     btnExibir.classList.add("btn-pink")
 }*/
 
+var totalAulas = 0
+
+function atualizarKPIs() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    fetch(`/medidas/totais?idUsuario=${idUsuario}`)
+        .then((response) => {
+            if (response.ok) {
+                response.json().then((dados) => {
+                    console.log("Dados de KPI recebidos:", dados);
+
+                    // Atualiza os elementos na página
+                    var totalAulas = dados.totalAulas || 0;
+                    var totalSequencias = dados.totalSequencias || 0;
+
+                    document.getElementById("aulas_progressao").textContent = `65/${totalAulas}`;
+                    document.getElementById("sequencias_consistencia").textContent = `${totalSequencias} Sequências`;
+                });
+            } else {
+                console.error("Erro ao buscar dados de KPI.");
+            }
+        })
+        .catch((error) => {
+            console.error("Erro ao buscar KPI:", error);
+        });
+}
+
 function registrarProdutividade() {
     var produtividadeVar = Number(input_aulas_assistidas.value);
     var idUsuario = sessionStorage.ID_USUARIO;
 
+    // Verificar se as KPIs estão disponíveis no momento
+    if (typeof totalAulas === "undefined" || isNaN(totalAulas)) {
+        console.error("Erro: 'totalAulas' não foi definido ou não é um número válido.");
+        return alert("Erro ao verificar o total de aulas. Atualize a página e tente novamente.");
+    }
+
+    if (totalAulas >= 65) {
+        return alert("Parabéns! Você concluiu todas as aulas!");
+    }
+
     if (idUsuario !== null) {
-        console.log("ID do Usuário:", idUsuario); // Exibe o ID do usuário
+        console.log("ID do Usuário:", idUsuario);
     } else {
         console.log("ID do Usuário não encontrado.");
     }
 
-    // Enviando o valor da nova input
     fetch("/medidas/registrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-  
-        produtividadeServer: produtividadeVar,
-        fkUsuarioServer: idUsuario,
-      }),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            produtividadeServer: produtividadeVar,
+            fkUsuarioServer: idUsuario,
+        }),
     })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
+        .then(function (resposta) {
+            if (resposta.ok) {
+                console.log("Registro realizado com sucesso!");
 
-        if (resposta.ok) {
-          cardErro.style.display = "block";
+                // Atualizar as KPIs após o registro
+                atualizarKPIs();
 
-        } else {
-          throw "Houve um erro ao tentar realizar o registro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
+                // Atualizar o gráfico, se aplicável
+                obterDadosGrafico();
+            } else {
+                resposta.text().then((mensagem) => {
+                    console.error("Erro ao registrar:", mensagem);
+                    alert(mensagem || "Erro ao registrar produtividade.");
+                });
+            }
+        })
+        .catch(function (erro) {
+            console.log(`#ERRO: ${erro}`);
+            alert("Erro ao registrar produtividade. Tente novamente.");
+        });
 
     return false;
-  }
+}
+
 
 // O gráfico é construído com três funções:
 // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
@@ -358,94 +405,56 @@ function registrarProdutividade() {
 function obterDadosGrafico() {
     var idUsuario = sessionStorage.ID_USUARIO
 
-    fetch(`/medidas/ultimas`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/medidas/ultimas?idUsuario=${idUsuario}`, { cache: 'no-store' })
+    .then((response) => {
         if (response.ok) {
-            response.json().then(function (resposta) {
+            response.json().then((resposta) => {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                 resposta.reverse();
 
                 plotarGrafico(resposta);
-
+                plotarGrafico2(resposta);
             });
         } else {
             console.error('Nenhum dado encontrado ou erro na API');
         }
     })
-        .catch(function (error) {
+        .catch((error) => {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
 }
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico(resposta) {
+let labels = [];
+let dadosProdutividade = [];
 
-    console.log('iniciando plotagem do gráfico...');
-
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [1,2,3,4,5,6,7,8,9];
-    let dadosProdutividade = [];
-
-    resposta.forEach((registro) => {
-        labels.push(`Registro ${registro.dado}`);
-        dadosProdutividade.push(registro.produtividade);
-    });
-
-    // Criando estrutura para plotar gráfico - dados
-    let data = {
+const data = {
         labels: labels,
         datasets: [{
             label: 'Meta Atingida',
             data: dadosProdutividade,
             fill: false,
-            //backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            //borderColor: 'rgba(54, 162, 235, 1)',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
             tension: 0.1
         },
-        //{
-        //    label: 'Meta Ideal',
-        //    data: [5, 5, 5, 5, 5, 5, 5, 5, 5],
-        //    borderColor: 'rgb(79, 122, 63)',
-        //    borderWidth: 1,
-        //    fill: false,
-        //    pointBackgroundColor: 'rgb(79, 122, 63)',
-        //},
-        //{
-        //    label: 'Meta Mínima',
-        //    data: [1, 1, 1, 1, 1, 1, 1, 1, 1],
-        //    borderColor: 'rgb(242, 172, 172)',
-        //    borderWidth: 1,
-        //    fill: false,
-        //    pointBackgroundColor: 'rgb(242, 172, 172)',
-        //}
-        ]
+        {
+        label: 'Meta Ideal',
+        data: [5, 5, 5, 5, 5, 5, 5, 5, 5],
+        borderColor: 'rgb(79, 122, 63)',
+        borderWidth: 1,
+        fill: false,
+        pointBackgroundColor: 'rgb(79, 122, 63)',
+    },
+    {
+        label: 'Meta Mínima',
+        data: [1, 1, 1, 1, 1, 1, 1, 1, 1],
+        borderColor: 'rgb(242, 172, 172)',
+        borderWidth: 1,
+        fill: false,
+        pointBackgroundColor: 'rgb(242, 172, 172)',
+    }]
     };
 
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-
-        labels.push(registro.dado);
-        
-        dados.datasets[0].data.push(registro.produtividade);
-
-    }
-
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
-    console.log('----------------------------------------------')
-
-    // Criando estrutura para plotar gráfico - config
     const config = {
     type: 'line',
     data: data,
@@ -478,21 +487,183 @@ function plotarGrafico(resposta) {
             y: {
                 grid: {
                     display: false // Remove as linhas de grade horizontais
+                }
+            }
+        }
+    }
+}
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+    graficoAtual = new Chart(ctx, config);
+
+// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+// A função *plotarGrafico* também invoca a função *atualizarGrafico*
+function plotarGrafico(resposta) {
+    console.log('Iniciando plotagem do gráfico...');
+
+    let labels = [];
+    let dadosProdutividade = [];
+
+    resposta.forEach((registro) => {
+        labels.push(`Registro ${registro.dado}`);
+        dadosProdutividade.push(registro.produtividade);
+    });
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Meta Atingida',
+            data: dadosProdutividade,
+            fill: false,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            tension: 0.1
+        },
+        {
+        label: 'Meta Ideal',
+        data: [5, 5, 5, 5, 5, 5, 5, 5, 5],
+        borderColor: 'rgb(79, 122, 63)',
+        borderWidth: 1,
+        fill: false,
+        pointBackgroundColor: 'rgb(79, 122, 63)',
+    },
+    {
+        label: 'Meta Mínima',
+        data: [1, 1, 1, 1, 1, 1, 1, 1, 1],
+        borderColor: 'rgb(242, 172, 172)',
+        borderWidth: 1,
+        fill: false,
+        pointBackgroundColor: 'rgb(242, 172, 172)',
+    }]
+    };
+
+    const config = {
+    type: 'line',
+    data: data,
+    options: {
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'black', // Cor do texto da legenda
+                    generateLabels: function(chart) {
+                        // Mantém as cores iguais às linhas do gráfico
+                        return chart.data.datasets.map(function(dataset, i) {
+                            return {
+                                text: dataset.label,
+                                fillStyle: dataset.borderColor, // Quadrado com a mesma cor da borda
+                                strokeStyle: dataset.borderColor,
+                                lineWidth: dataset.borderWidth,
+                                datasetIndex: i
+                            };
+                        });
+                    }
+                }
+            }
+        },
+        scales: {
+            x: {
+                grid: {
+                    display: false // Remove as linhas de grade verticais
+                }
+            },
+            y: {
+                grid: {
+                    display: false // Remove as linhas de grade horizontais
+                }
+            }
+        }
+    }
+}
+
+    if (graficoAtual) {
+        graficoAtual.destroy();
+    }
+
+    // Criar novo gráfico
+    const ctx = document.getElementById('myChart').getContext('2d');
+    graficoAtual = new Chart(ctx, config);
+}
+
+function plotarGrafico2(resposta) {
+    console.log('Iniciando plotagem do gráfico...');
+
+    const totalAulas = 65;
+    
+    // Calcular aulas realizadas com base nos dados recebidos (supondo que 'produtividade' seja o número de aulas realizadas)
+    let totalAulasRealizadas = 0;
+    resposta.forEach((registro) => {
+        totalAulasRealizadas += registro.produtividade; // Supondo que 'produtividade' seja o número de aulas realizadas
+    });
+
+    const aulasPendentes = totalAulas - totalAulasRealizadas;
+
+    const estadoAulas =[
+    'Pendente',
+    'Realizadas',
+    ]
+
+    
+    const aulas = {
+    labels: estadoAulas,
+    datasets: [{
+        label: 'Pendetes',
+        backgroundColor: 'rgb(242, 172, 172)',
+        borderColor: 'rgb(242, 172, 172)',
+        data: [aulasPendentes, 0],
+    },
+    {
+        label: 'Realizadas',
+        backgroundColor: 'rgb(79, 122, 63)',
+        borderColor: 'rgb(79, 122, 63)',
+        data: [0, totalAulasRealizadas],
+    }]
+}
+
+    const config2 = {
+        type: 'bar',
+        data: aulas,
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'black', // Cor do texto da legenda
+                        generateLabels: function(chart) {
+                            // Mantém as cores iguais às linhas do gráfico
+                            return chart.data.datasets.map(function(dataset, i) {
+                                return {
+                                    text: dataset.label,
+                                    fillStyle: dataset.borderColor, // Quadrado com a mesma cor da borda
+                                    strokeStyle: dataset.borderColor,
+                                    lineWidth: dataset.borderWidth,
+                                    datasetIndex: i
+                                };
+                            });
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false // Remove as linhas de grade verticais
+                    }
+                },
+                y: {
+                    grid: {
+                        display: false // Remove as linhas de grade horizontais
                     }
                 }
             }
         }
     }
 
-    // Adicionando gráfico criado em div na tela
-    const myChart = new Chart(
-    document.getElementById('myChart'),
-    config
+    const chartMetas = new Chart(
+        document.getElementById('chartMetas'),
+        config2
     )
 
-    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
 }
-
 
 // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,
 // buscando a última medida inserida em tabela contendo as capturas, 
