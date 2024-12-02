@@ -119,10 +119,6 @@ main{
           font-size: 45px;
           text-align: center;
       }
-
-      & p:hover{
-          transform: scale(1.1);  
-      }
   }
 
   & #section_sobre{

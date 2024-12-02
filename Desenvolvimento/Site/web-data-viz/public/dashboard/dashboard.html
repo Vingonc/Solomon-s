@@ -33,10 +33,15 @@
                 <h3>Solomon’s</h3>
             </div>
         </nav>
+        <nav id="titulo_dash">
+            <div>
+                <p>DASHBOARD - PRODUTIVIDADE</p>
+            </div>
+        </nav>
         <nav id="links">
             <div id="usuario">
                 <div>
-                    <img id="icon_user" src="../assets/dashboard/imagem-do-usuario-com-fundo-preto.png">
+                    <img id="icon_user" src="../assets/dashboard/Design sem nome.png">
                 </div>
                 <span id="b_usuario">Vinicius Gonçalves</span>
                 
@@ -52,10 +57,6 @@
                             <p>Opções</p>
                         </div>
                         <div id="opcoes_menu">
-                            <div>
-                                <img src="../assets/dashboard/configuracoes.png" alt="">
-                                <p>Configurações</p>
-                            </div>
                             <div>
                                 <img src="../assets/dashboard/sair.png" alt="">
                                 <a href="../login.html">Sair</a>
@@ -310,6 +311,9 @@ function exibirAquario(idAquario) {
 
 var totalAulas = 0
 
+var totalAulasRealizadas = 0
+var aulasPendentes = 0
+
 function atualizarKPIs() {
     var idUsuario = sessionStorage.ID_USUARIO;
 
@@ -323,8 +327,14 @@ function atualizarKPIs() {
                     var totalAulas = dados.totalAulas || 0;
                     var totalSequencias = dados.totalSequencias || 0;
 
-                    document.getElementById("aulas_progressao").textContent = `65/${totalAulas}`;
-                    document.getElementById("sequencias_consistencia").textContent = `${totalSequencias} Sequências`;
+                    if (totalAulas <= 65){
+                        document.getElementById("aulas_progressao").textContent = `65/${totalAulas}`;
+                        document.getElementById("sequencias_consistencia").textContent = `${totalSequencias} Sequências`;
+                    } else {
+                        document.getElementById("aulas_progressao").innerHTML = `65/65`;
+                        totalAulasRealizadas = 65
+                        aulasPendentes = 0
+                    }
                 });
             } else {
                 console.error("Erro ao buscar dados de KPI.");
@@ -585,24 +595,25 @@ function plotarGrafico(resposta) {
     graficoAtual = new Chart(ctx, config);
 }
 
+var chartMetas = null
+
 function plotarGrafico2(resposta) {
     console.log('Iniciando plotagem do gráfico...');
 
     const totalAulas = 65;
     
     // Calcular aulas realizadas com base nos dados recebidos (supondo que 'produtividade' seja o número de aulas realizadas)
-    let totalAulasRealizadas = 0;
+    var totalAulasRealizadas = 0;
     resposta.forEach((registro) => {
         totalAulasRealizadas += registro.produtividade; // Supondo que 'produtividade' seja o número de aulas realizadas
     });
 
-    const aulasPendentes = totalAulas - totalAulasRealizadas;
+    var aulasPendentes = totalAulas - totalAulasRealizadas;
 
     const estadoAulas =[
     'Pendente',
     'Realizadas',
     ]
-
     
     const aulas = {
     labels: estadoAulas,
@@ -620,49 +631,52 @@ function plotarGrafico2(resposta) {
     }]
 }
 
-    const config2 = {
-        type: 'bar',
-        data: aulas,
-        options: {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: 'black', // Cor do texto da legenda
-                        generateLabels: function(chart) {
-                            // Mantém as cores iguais às linhas do gráfico
-                            return chart.data.datasets.map(function(dataset, i) {
-                                return {
-                                    text: dataset.label,
-                                    fillStyle: dataset.borderColor, // Quadrado com a mesma cor da borda
-                                    strokeStyle: dataset.borderColor,
-                                    lineWidth: dataset.borderWidth,
-                                    datasetIndex: i
-                                };
-                            });
+    // Se o gráfico já foi criado, atualize-o
+    if (chartMetas) {
+        chartMetas.data = aulas;
+        chartMetas.update(); // Atualiza o gráfico com os novos dados
+    } else {
+
+        const config2 = {
+            type: 'bar',
+            data: aulas,
+            options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'black', // Cor do texto da legenda
+                            generateLabels: function(chart) {
+                                // Mantém as cores iguais às linhas do gráfico
+                                return chart.data.datasets.map(function(dataset, i) {
+                                    return {
+                                        text: dataset.label,
+                                        fillStyle: dataset.borderColor, // Quadrado com a mesma cor da borda
+                                        strokeStyle: dataset.borderColor,
+                                        lineWidth: dataset.borderWidth,
+                                        datasetIndex: i
+                                    };
+                                });
+                            }
                         }
                     }
-                }
-            },
-            scales: {
-                x: {
-                    grid: {
-                        display: false // Remove as linhas de grade verticais
-                    }
                 },
-                y: {
-                    grid: {
-                        display: false // Remove as linhas de grade horizontais
+                scales: {
+                    x: {
+                        grid: {
+                            display: false // Remove as linhas de grade verticais
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false // Remove as linhas de grade horizontais
+                        }
                     }
                 }
             }
         }
-    }
-
-    const chartMetas = new Chart(
-        document.getElementById('chartMetas'),
-        config2
-    )
-
+        
+            chartMetas = new Chart(document.getElementById('chartMetas'),config2)
+        }
 }
 
 // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,

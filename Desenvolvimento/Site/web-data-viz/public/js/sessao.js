@@ -19,6 +19,21 @@ function limparSessao() {
     window.location = "../login.html";
 }
 
+//Função que encaminha o usuario para a página principal
+function direcionarHome(){
+    window.location.href = 'index.html'
+}
+
+//Função que encaminha o usuario para a página de login
+function realizarLogin(){
+    window.location.href = 'login.html'
+}
+
+//Função que encaminha o usuario para a página de login
+function realizarCadastro(){
+    window.location.href = 'cadastro.html'
+}
+
 // carregamento (loading)
 function aguardar() {
     var divAguardar = document.getElementById("div_aguardar");

@@ -6,8 +6,6 @@
 
     <title>Solomon's - Cadastro</title>
 
-    <script src="./js/sessao.js"></script>
-
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="icon" href="assets/Logo.png">
 
@@ -85,18 +83,9 @@
 </body>
 </html>
 
+<script src="./js/sessao.js"></script>
+
 <script>
-
-//Função que encaminha o usuario para a página principal
-function direcionarHome(){
-    window.location.href = 'index.html'
-}
-
-//Função que encaminha o usuario para a página de login
-function realizarLogin(){
-    window.location.href = 'login.html'
-}
-
   function cadastrar() {
     aguardar();
 
@@ -165,22 +154,6 @@ function realizarLogin(){
 
     return false;
   }
-
-//   function listar() {
-//     fetch("/empresas/listar", {
-//       method: "GET",
-//     })
-//       .then(function (resposta) {
-//         resposta.json().then((empresas) => {
-//           empresas.forEach((empresa) => {
-//             listaEmpresas.innerHTML += `<option value='${empresa.id}'>${empresa.cnpj}</option>`;
-//           });
-//         });
-//       })
-//       .catch(function (resposta) {
-//         console.log(`#ERRO: ${resposta}`);
-//       });
-//   }
 
   function sumirMensagem() {
     cardErro.style.display = "none";
