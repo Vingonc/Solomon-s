@@ -18,11 +18,6 @@ foreign key (fkUsuario)
 references usuario (idUsuario)
 );
 
-create table quiz(
-tentativa int primary key auto_increment,
-qtdRespostas int
-);
-
 select * from usuario;
 
 select * from produtividade;

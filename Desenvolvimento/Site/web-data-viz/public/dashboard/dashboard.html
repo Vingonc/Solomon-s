@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 
 </head>
 <body>
@@ -610,73 +612,58 @@ function plotarGrafico2(resposta) {
 
     var aulasPendentes = totalAulas - totalAulasRealizadas;
 
-    const estadoAulas =[
-    'Pendente',
-    'Realizadas',
-    ]
-    
     const aulas = {
-    labels: estadoAulas,
-    datasets: [{
-        label: 'Pendetes',
-        backgroundColor: 'rgb(242, 172, 172)',
-        borderColor: 'rgb(242, 172, 172)',
-        data: [aulasPendentes, 0],
-    },
-    {
-        label: 'Realizadas',
-        backgroundColor: 'rgb(79, 122, 63)',
-        borderColor: 'rgb(79, 122, 63)',
-        data: [0, totalAulasRealizadas],
-    }]
-}
+        labels: ['Pendentes', 'Realizadas'],
+        datasets: [{
+            backgroundColor: ['#ca5e5e','#4F7A3F'], // Azul para pendentes, laranja para realizadas
+            data: [aulasPendentes, totalAulasRealizadas]
+        }]
+    };
 
-    // Se o gráfico já foi criado, atualize-o
     if (chartMetas) {
-        chartMetas.data = aulas;
-        chartMetas.update(); // Atualiza o gráfico com os novos dados
+        chartMetas.data = aulas; // Atualiza os dados
+        chartMetas.update();    // Aplica as mudanças
     } else {
 
+        // Configuração do gráfico
         const config2 = {
-            type: 'bar',
+            type: 'pie',
             data: aulas,
             options: {
                 plugins: {
                     legend: {
+                        display: true,
                         labels: {
-                            color: 'black', // Cor do texto da legenda
-                            generateLabels: function(chart) {
-                                // Mantém as cores iguais às linhas do gráfico
-                                return chart.data.datasets.map(function(dataset, i) {
-                                    return {
-                                        text: dataset.label,
-                                        fillStyle: dataset.borderColor, // Quadrado com a mesma cor da borda
-                                        strokeStyle: dataset.borderColor,
-                                        lineWidth: dataset.borderWidth,
-                                        datasetIndex: i
-                                    };
-                                });
+                            color: 'black'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                const value = tooltipItem.raw;
+                                return `${tooltipItem.label}: ${value}`;
                             }
+                        }
+                    },
+                    datalabels: {
+                        color: 'white',
+                        font: {
+                            size: 16
+                        },
+                        formatter: function(value) {
+                            return value; // Exibe o valor diretamente dentro da fatia
                         }
                     }
                 },
-                scales: {
-                    x: {
-                        grid: {
-                            display: false // Remove as linhas de grade verticais
-                        }
-                    },
-                    y: {
-                        grid: {
-                            display: false // Remove as linhas de grade horizontais
-                        }
-                    }
-                }
-            }
-        }
-        
-            chartMetas = new Chart(document.getElementById('chartMetas'),config2)
-        }
+                responsive: true,
+                maintainAspectRatio: false
+            },
+            plugins: [ChartDataLabels] // Plugin para exibir os números dentro do gráfico
+        };
+    
+        // Renderiza o gráfico
+        chartMetas = new Chart(document.getElementById('chartMetas'), config2);
+    }
 }
 
 // Esta função *atualizarGrafico* atualiza o gráfico que foi renderizado na página,

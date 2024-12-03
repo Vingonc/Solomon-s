@@ -238,22 +238,6 @@ main{
               font-size: 27px;
               padding-top: 20px;
           }
-
-          & button{
-              width: 150px;
-              height: 45px;
-              margin-top: 20px;
-              background-color: #ffffff;
-              border-radius: 20px;
-              border: none;
-              font-size: 35px;
-              text-align: center;
-          }
-
-          & button:hover{
-              transform: scale(1.1);
-              cursor: pointer;
-          }
       }
   }
 
