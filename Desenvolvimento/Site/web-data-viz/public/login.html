@@ -37,13 +37,14 @@
                 <p id="titulo">ACESSAR CONTA</p>
     
                 <div id="inputs">
-                    <img src="assets/cadastro/mail.png">
+                    <img id="mail" src="assets/cadastro/mail.png">
                     <input id="email_input" placeholder="E-MAIL">
                 </div>
     
                 <div id="inputs">
-                    <img src="assets/cadastro/senha.png">
+                    <img id="cadeado" src="assets/cadastro/senha.png">
                     <input id="senha_input" type="password" placeholder="SENHA">
+                    <img id="olho" src="assets/login/view.png" onclick="revelarSenha()">
                 </div>
     
                 <button onclick="entrar()">Login</button>
@@ -117,6 +118,11 @@
                     }
                 });
             } else {
+                cardErro.style.display = "block";
+                mensagem_erro.innerHTML =
+                `Login Inválido!.<br>
+                Verifique as informações inseridas.`;
+
                 console.log("Houve um erro ao tentar realizar o login!");
                 resposta.text().then(texto => {
                     console.error(texto); 

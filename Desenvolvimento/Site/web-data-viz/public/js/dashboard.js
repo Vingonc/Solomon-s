@@ -201,5 +201,11 @@ selectMateria.addEventListener('change', function() {
                             <li><a href = 'https://www.w3schools.com'>Extra - Site para ajuda</a></li>
                             <div id="separador"></div>
                         </ul>`
-    } 
+    } else if (materia == ""){
+        document.getElementById('materias').innerHTML =
+        `<div id="titulo_materia">
+                        <p>Selecione uma matéria</p>
+                    </div>
+                </div>`
+    }
 })

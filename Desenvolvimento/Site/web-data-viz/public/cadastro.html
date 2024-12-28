@@ -48,20 +48,22 @@
             <div id="dados">
               <p id="titulo">CRIAR UMA CONTA</p>
                 <div id="inputs">
-                    <img src="assets/cadastro/nome.png">
+                    <img class="icone" src="assets/cadastro/nome.png">
                     <input class="inputs_dados" id="nome_input" placeholder="NOME">
                 </div>
                 <div id="inputs">
-                  <img src="assets/cadastro/mail.png">
+                  <img class="icone" src="assets/cadastro/mail.png">
                     <input class="inputs_dados" id="email_input" placeholder="E-MAIL">
                 </div>
                 <div id="inputs">
-                    <img src="assets/cadastro/senha.png">
+                    <img id="cadeado" src="assets/cadastro/senha.png">
                     <input class="inputs_dados" type="password" id="senha_input" placeholder="SENHA">
+                    <img id="olho" src="assets/login/view.png" onclick="revelarSenha()">
                   </div>
                   <div id="inputs">
-                    <img src="assets/cadastro/senha.png">
+                    <img id="cadeado" src="assets/cadastro/senha.png">
                     <input class="inputs_dados" type="password" id="confirmacao_senha_input" placeholder="REPETIR SENHA">
+                    <img id="olho2" src="assets/login/view.png" onclick="revelarSenha2()">
                 </div>
                 
                 <button onclick="cadastrar()">Cadastrar</button>

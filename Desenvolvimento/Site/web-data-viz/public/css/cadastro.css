@@ -140,9 +140,29 @@ main{
                 background-color: #ffffff;
                 border-radius: 5px;
     
-                & img{
+                & .icone{
                     height: 20px; 
                     margin: 5px;
+                }
+
+                & #olho{
+                    height: 20px; 
+                    margin: 5px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+
+                & #olho2{
+                    height: 20px; 
+                    margin: 5px;
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+
+                & #cadeado{
+                    height: 20px; 
+                    margin: 5px;
+                    margin-left: 14px;
                 }
 
                 & input:focus{

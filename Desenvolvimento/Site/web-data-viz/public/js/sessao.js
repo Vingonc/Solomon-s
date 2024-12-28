@@ -13,6 +13,32 @@ function validarSessao() {
     }   
 }
 
+function revelarSenha(){
+  const senha_input = document.getElementById('senha_input')
+  const icone = document.getElementById('olho')
+
+  if(senha_input.type == 'password'){
+      senha_input.type = 'text'
+      icone.src = 'assets/login/hide.png'
+  } else {
+      senha_input.type = 'password'
+      icone.src = 'assets/login/view.png'
+  }
+}
+
+function revelarSenha2(){
+  const senha_input = document.getElementById('senha_input')
+  const icone2 = document.getElementById('olho2')
+
+  if(senha_input.type == 'password'){
+      senha_input.type = 'text'
+      icone2.src = 'assets/login/hide.png'
+  } else {
+      senha_input.type = 'password'
+      icone2.src = 'assets/login/view.png'
+  }
+}
+
 function cadastrar() {
     aguardar();
 
